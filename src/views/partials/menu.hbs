@@ -1,0 +1,83 @@
+
+<div class="scrollInf ventana_genero" id="ventana_menu">
+
+    <div class="card  ">
+        <div class="">
+
+            <h4 class="txtblack" id="nombre">Usuario</h4>
+        </div>
+        <div class="card-body">
+
+          
+
+            {{#if user}}
+            <div class="dropdown-divider"></div>
+            <div class="text-center contenedor_genero">
+                <a href="/perfil">
+                    <img src="img/buton.png" class="rounded imagen_genero" alt="...">
+                    <div class="centrado_genero">Perfil</div>
+                </a>
+            </div>
+
+            <div class="dropdown-divider"></div>
+            <div class="text-center contenedor_genero">
+                <a href="/logout">
+                    <img src="img/buton.png" class="rounded imagen_genero" alt="...">
+                    <div class="centrado_genero">Cerra Sesion</div>
+                </a>
+            </div>
+
+            {{else}}
+            <div class="dropdown-divider"></div>
+            <div class="text-center contenedor_genero">
+                <a href="/iniciar">
+                    <img src="img/buton.png" class="rounded imagen_genero" alt="...">
+                    <div class="centrado_genero">Iniciar Sesion</div>
+                </a>
+            </div>
+
+            <div class="dropdown-divider"></div>
+            <div class="text-center contenedor_genero">
+                <a href="/registrar">
+                    <img src="img/buton.png" class="rounded imagen_genero" alt="...">
+                    <div class="centrado_genero">Registrarse</div>
+                </a>
+            </div>
+            {{/if}}
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="scrollInf ventana_genero" id="ventana_genero">
+
+    <div class="card  ">
+        <div class="">
+
+            <h4 class="txtblack" id="nombre">Genero</h4>
+        </div>
+        <div class="card-body">
+            <div class="dropdown-divider"></div>
+            <div class="text-center contenedor_genero">
+                <a href="/peliculas">
+                    <img src="img/buton.png" class="rounded imagen_genero" alt="...">
+                    <div class="centrado_genero">Todos</div>
+                </a>
+            </div>
+            {{#each genero}}
+            <div class="dropdown-divider"></div>
+            <div class="text-center contenedor_genero">
+                <a href="/peliculas?genero={{genero}}">
+                    <img src="img/buton.png" class="rounded imagen_genero" alt="...">
+                    <div class="centrado_genero">{{genero}}</div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</div>

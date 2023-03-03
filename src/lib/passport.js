@@ -1,0 +1,73 @@
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
+const pool = require('../database');
+const helpers = require('./helpers');
+
+passport.use('local.signin', new LocalStrategy({
+  usernameField: 'usuario',
+  passwordField: 'contraseña',
+  passReqToCallback: true
+}, async (req, usuario, contraseña, done) => {
+  const rows = await pool.query('SELECT * FROM usuario WHERE usuario = ?', [usuario]);
+  if (rows.length > 0) {
+    const user = rows[0];
+    const validPassword = await helpers.matchPassword(contraseña, user.contraseña)
+    if (validPassword) {
+      done(null, user, req.flash('success', 'Bienbenido ' + user.usuario));
+    } else {
+      done(null, false, req.flash('message', 'Contraseña incorrecta'));
+    }
+  } else {
+    return done(null, false, req.flash('message', 'Este usuario no existe.'));
+  }
+}));
+
+passport.use('local.visit', new LocalStrategy({
+  usernameField: 'usuario',
+  passwordField: 'contraseña',
+  passReqToCallback: true
+}, async (req, usuario, contraseña, done) => {
+  var us = 0;
+
+  do {
+    var visitante = "visitante" + us;
+    const rows = await pool.query('SELECT* FROM pedidos WHERE id_usuario = ?', [visitante]);
+    done(null, visitante, req.flash('success', 'Bienbenido ' + visitante));
+    us++;
+
+  } while (rows.length > 0);
+}));
+
+passport.use('local.signup', new LocalStrategy({
+  usernameField: 'usuario',
+  passwordField: 'contraseña',
+  passReqToCallback: true
+}, async (req, usuario, contraseña, done) => {
+
+  const { nombre, telefono } = req.body;
+  const pts=0;
+  let newUser = {
+    nombre,
+    usuario,    
+    contraseña, 
+    telefono  ,
+    pts
+    
+  };
+  newUser.contraseña = await helpers.encryptPassword(contraseña);
+  // Saving in the Database
+  const result = await pool.query('INSERT INTO usuario SET ? ', newUser);
+  newUser.id_usuario = result.insertId;
+  return done(null, newUser);
+}));
+
+passport.serializeUser((user, done) => {
+  done(null, user.id_usuario);
+});
+
+passport.deserializeUser(async (id_usuario, done) => {
+  const rows = await pool.query('SELECT * FROM usuario WHERE id_usuario = ?', [id_usuario]);
+  done(null, rows[0]);
+});
+

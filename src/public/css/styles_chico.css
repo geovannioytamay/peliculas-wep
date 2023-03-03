@@ -1,0 +1,555 @@
+body {
+  background: #f5f6fa;
+}
+
+
+
+.index {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+
+.navbar {
+  /*position:fixed;*/
+  /*modo estatico ;*/
+  background: rgb(1, 4, 39) !important;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.masthead {
+  color: white;
+  min-height: 30rem;
+  width: 100%;
+  height: 100%;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background: url('/img/background.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.masthead h1 {
+  font-size: 10rem;
+  margin: 0;
+  padding: 0;
+  -webkit-text-stroke: 2px rgb(27, 35, 102);
+
+
+}
+
+.eslogan {
+  font-size: 5rem;
+}
+
+.p {
+  border: rgb(17, 148, 28) 3px solid;
+  border-image-slice: 1;
+  padding: 0px;
+  text-align: justify;
+}
+
+.caja-ancho{
+  
+  width: 95%;
+}
+.campo-alto{ 
+  height: 100px;
+  font-size: 4rem;
+}
+
+
+section {
+  width: 75%;
+  float: left;
+  padding: 10px;
+  background-color: rgb(10, 17, 51);
+  float: left;
+  margin-left: 10%;
+}
+
+#estatico {
+  position: fixed;
+}
+
+aside {
+  float: right;
+  width: 15%;
+  float: right;
+  padding: 5px;
+  float: right;
+  height: 100px;
+}
+
+
+.imagen {
+  width: 70%;
+  height: 70%;
+  margin-bottom: auto;
+}
+
+.msg {
+  width: 100%;
+
+  float: left;
+}
+
+.saltoMsg {
+  height: 10%;
+  background: #50fd00;
+}
+
+.msgServidore {
+  margin-left: 1%;
+  min-width: 10%;
+  max-width: 70%;
+
+}
+
+.colorus {
+  background: #022253;
+  color: #fff;
+  min-width: 250px;
+  border-radius: 68px 68px 0px 68px;
+  -moz-border-radius: 68px 68px 0px 68px;
+  -webkit-border-radius: 68px 68px 0px 68px;
+  border: 0px solid #000000;
+
+  position: absulute;
+  margin-right: 10px;
+  float: right;
+
+}
+
+.colorser {
+  background: rgb(255, 174, 0);
+  color: #000;
+  border-radius: 68px 68px 68px 0px;
+  -moz-border-radius: 68px 68px 68px 0px;
+  -webkit-border-radius: 68px 68px 68px 0px;
+  border: 0px solid #000000;
+}
+
+.txtms {
+
+  font-size: 40px;
+
+
+}
+
+.datoser {
+  text-align: end;
+  margin-right: 50px;
+}
+
+.datosus {
+  text-align: center;
+
+}
+
+.visto {
+  width: 20px;
+  height: 15px;
+
+}
+
+
+.imagen_genero {
+  width: 100%;
+  height: 100%;
+  margin-bottom: auto;
+}
+
+.promocion {
+  width: 150%;
+  height: 150%;
+  margin-bottom: auto;
+  margin-top: 50px;
+  margin-right: 50px;
+}
+
+.txtblack {
+  color: #000;
+  font-size: 40px;
+  text-align: center;
+}
+
+.descripcion {
+  font-size: 30px;
+  text-align: justify;
+}
+
+.encanezado_msg {
+  width: 800px;
+  background: rgb(255, 255, 255);
+}
+
+.tam {
+  width: 800px;
+}
+
+.ventana {
+  background: rgb(1, 4, 39);
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 255px;
+  border-radius: 22px;
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  display: none;
+  position: fixed;
+}
+
+.ventana_mesage {
+
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  height: 1330px;
+  border-radius: 22px;
+  position: absolute;
+  left: 5%;
+  top: 1%;
+  display: none;
+  position: fixed;
+
+}
+
+.mesage_div {
+  height: 1130px;
+
+}
+
+.ventana_getNombre {
+  border: rgb(2, 6, 59) 10px solid;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  height: 400px;
+  width: 550px;
+  border-radius: 22px;
+  position: absolute;
+  left: 20%;
+  top: 1%;
+  display: none;
+  position: fixed;
+}
+
+.getNambre_div {
+
+  position: relative;
+  left: 65px;
+  top: 10px;
+  height: 100px;
+
+
+}
+
+.imagen_iniciar {
+  width: 80%;
+  height: 80%;
+  margin-bottom: auto;
+}
+
+
+.scrollInfMSG {
+  max-height: 1300px;
+  overflow: scroll;
+}
+
+.txtMsg {
+  min-width: 700px;
+  height: 100px;
+  font-size: 30px;
+}
+
+.ventana_genero {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 255px;
+  width: 400px;
+  border-radius: 30px;
+  position: absolute;
+  left: 40%;
+  top: 1%;
+  display: none;
+  position: fixed;
+}
+
+
+.ventana_nav {
+  display: none;
+}
+
+.orden {
+  width: 250px;
+  height: 50px;
+}
+
+.ventanaBuscar {
+  background: rgb(1, 4, 39);
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 20px;
+  min-width: 800px;
+  border-radius: 22px;
+  position: absolute;
+  left: 7%;
+  top: 10%;
+  display: none;
+  position: fixed;
+}
+
+.ventana_alert {
+  background: rgb(2, 5, 41);
+  color: rgb(7, 4, 51);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 20px;
+  min-width: 600px;
+  max-width: 600px;
+  border-radius: 22px;
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  display: none;
+  position: fixed;
+  border: darkorange;
+  border-spacing: 30;
+}
+
+.txtwhite {
+  color: rgb(255, 255, 255);
+  font-size: 36px;
+  text-align: center;
+}
+
+.btn_alert {
+  width: 20%;
+  height: 20%;
+  margin-bottom: auto;
+}
+
+
+
+.imagen_menu {
+  width: 40%;
+  height: 40%;
+  margin-bottom: auto;
+}
+
+.casillaGetnombre {
+  width: 500px;
+  height: 100px;
+  font-size: 30px;
+}
+
+.casillaGetnombre {
+  width: 400px;
+  height: 80px;
+  font-size: 30px;
+
+}
+
+.casillaBuscar {
+  width: 500px;
+  height: 100px;
+  font-size: 40px;
+}
+
+.btnBuscar {
+  width: 200px;
+  height: 100px;
+  font-size: 30px;
+}
+
+.btn-grande {
+  background-color: #052350;
+  /* Green */
+ 
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 100px;
+  border-radius: 20px;
+  width: 500px;
+  height: 150px;
+
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.btn-grande:hover {
+  background-color: #031127; 
+  color: white;
+}
+
+#cerrar {
+  position: absulute;
+  right: 30px;
+  float: right;
+}
+
+#titulo {
+  text-align: center;
+  color: #f5f6fa;
+}
+
+.btnCerrar {
+  width: 50px;
+  height: 50px;
+}
+
+.btnSend {
+  width: 100px;
+  height: 100px;
+}
+
+.scrollInf {
+  max-height: 1200px;
+  overflow: scroll;
+}
+
+.centrado {
+  position: absolute;
+  top: 75%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  color: rgb(250, 8, 8);
+  font-weight: bold;
+  font-size: 30pt;
+}
+
+.centrado_genero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 32pt;
+}
+
+.contenedor {
+  position: relative;
+}
+
+.anio {
+  position: absolute;
+  top: 93%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 15pt;
+  background: rgb(8, 2, 46);
+  border: rgb(255, 187, 0) 3px solid;
+}
+
+.pts {
+  position: absolute;
+  top: 10%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 10pt;
+  background: rgb(8, 2, 46);
+  border: rgb(255, 187, 0) 3px solid;
+  max-width: 40px;
+  width: 40px;
+  border-radius: 104px 104px 104px 104px;
+  -moz-border-radius: 104px 104px 104px 104px;
+  -webkit-border-radius: 104px 104px 104px 104px;
+  text-align: center;
+}
+
+.contenedor_genero {
+  position: relative;
+}
+
+#WindowLoad {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 3200;
+  filter: alpha(opacity=65);
+  -moz-opacity: 65;
+  opacity: 0.65;
+  background: rgb(0, 0, 0);
+}
+
+.imper:focus,
+.imper:link {
+  color: white;
+  font-size: 20pt;
+  font-family: arial;
+  text-decoration: none;
+}
+
+.imper:hover {
+  color: white;
+  font-size: 20pt;
+  font-family: arial;
+  text-decoration: none;
+}
+
+.imper:visited {
+  color: white;
+  font-size: 20pt;
+  font-family: arial;
+  text-decoration: none;
+}
+
+.centro {
+  text-align: center;
+}
+
+
+@media (max-height: 1350px) {
+  .ventana_mesage {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 830px;
+    border-radius: 22px;
+    position: absolute;
+    left: 5%;
+    top: 1%;
+    display: none;
+    position: fixed;
+  }
+
+  .mesage_div {
+    height: 630px;
+
+  }
+}
+
+
+
+
+@media (max-height: 800px) {
+  .ventana_mesage {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 730px;
+    border-radius: 22px;
+    position: absolute;
+    left: 5%;
+    top: 1%;
+    display: none;
+    position: fixed;
+  }
+
+  .mesage_div {
+    height: 530px;
+
+  }
+}
