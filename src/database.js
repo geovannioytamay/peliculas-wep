@@ -2,6 +2,7 @@ const mysql = require('mysql');
 const { promisify } = require('util');
 
 const { database } = require('./keys');
+const { Console } = require('console');
 
 const pool = mysql.createPool(database);
 
@@ -18,6 +19,11 @@ pool.getConnection((err, connection) => {
     }
     else console.error('Otro error no importante:' + err);
   }
+console.log("host:"+connection.config.host);
+console.log("user:"+connection.config.user);
+console.log("password:"+connection.config.password);
+console.log("port:"+connection.config.port);
+console.log("database:"+connection.config.database);
 
   if (connection) {
     connection.release();
