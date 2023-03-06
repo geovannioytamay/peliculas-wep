@@ -54,9 +54,11 @@ function ocultarSiNo() {
 
 function mostrar_getNombre() {
   document.getElementById("ventana_getNombre").style.display = "block";
+  document.getElementById("ventana_inicio").style.display = "none";
 }
 function ocultar_getNombre() {
   document.getElementById("ventana_getNombre").style.display = "none";
+  document.getElementById("ventana_inicio").style.display = "block";
 }
 
 function mostrar() {

@@ -1,4 +1,5 @@
 //npm run dev
+// npm install para instalar todos los modulos
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
@@ -11,12 +12,12 @@ const MySQLStore = require('express-mysql-session');
 const bodyParser = require('body-parser');
 const { database } = require('./keys');
 
-// Intializations
+// Intializations 
 const app = express();
 require('./lib/passport');
 
 // Settings
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 3000);//process.env.PORT: para ver si el proveeror me dio un puerto
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',

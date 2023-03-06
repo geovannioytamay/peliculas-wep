@@ -14,7 +14,7 @@ passport.use('local.signin', new LocalStrategy({
     const user = rows[0];
     const validPassword = await helpers.matchPassword(contraseña, user.contraseña)
     if (validPassword) {
-      done(null, user, req.flash('success', 'Bienbenido ' + user.usuario));
+      done(null, user, req.flash('success', 'Bienvenido' + user.usuario));
     } else {
       done(null, false, req.flash('message', 'Contraseña incorrecta'));
     }
@@ -33,7 +33,7 @@ passport.use('local.visit', new LocalStrategy({
   do {
     var visitante = "visitante" + us;
     const rows = await pool.query('SELECT* FROM pedidos WHERE id_usuario = ?', [visitante]);
-    done(null, visitante, req.flash('success', 'Bienbenido ' + visitante));
+    done(null, visitante, req.flash('success', 'Bienvenido' + visitante));
     us++;
 
   } while (rows.length > 0);

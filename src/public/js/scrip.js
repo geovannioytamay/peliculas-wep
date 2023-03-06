@@ -12,9 +12,9 @@ this.fetch("/peliculas/pedidos")
 
 
 */
-function iniciar(){
-  
-  localStorage.clear();   
+function iniciar(){  
+  localStorage.clear();  
+ 
   document.getElementById("iniciar").action="/iniciar" 
   document.getElementById("iniciar").submit() ;
   
@@ -42,8 +42,7 @@ function iniciarInvitado(){
   }else{
     alert("Ingres su nombre para indenfitifarlo");
   }
-  
-  
+    
 }
 
 

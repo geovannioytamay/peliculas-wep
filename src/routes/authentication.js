@@ -30,9 +30,7 @@ router.post('/iniciar', isNotLoggedIn, (req, res, next) => {
   if (errors.length > 0) {
     req.flash('message', errors[0].msg);
     res.redirect('/iniciar');
-  }
-
-  
+  }  
   passport.authenticate('local.signin', {
     successRedirect: '/peliculas',
     failureRedirect: '/iniciar',

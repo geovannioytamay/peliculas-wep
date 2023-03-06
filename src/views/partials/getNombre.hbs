@@ -1,30 +1,22 @@
-<div class="ventana_getNombre " id="ventana_getNombre">
-
-    <div class=" encanezado_getNombre ">
-        <div class="card-header">
-
-            <div id="cerrar">
-
-                <a href="javascript:ocultar_getNombre()"> <img class="btnCerrar" src="img/cerrar.png" alt=""></a>
-
-            </div>
-            <h4 class="txtblack" id="nombre">Pon un nombre para indentificarse</h4>
+<div class="login-wrapget"  id="ventana_getNombre">
+    <div class="login-htmlGet">
+        <div class="login-form">
+            <form action="javascript:iniciarInvitado()" method="POST">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label class="label">Identificate</label>
+                        <input id="txtVisitante" placeholder="Nombre"  type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Iniciar">
+                    </div>
+                    <div class="hr"></div>
+                    <br>
+                    <div class="foot-lnk">
+                        <a href="javascript:ocultar_getNombre()">Regresar</a>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="getNambre_div">
-            <input class=" mr-sm-2 casillaGetnombre" name="buscar" id="txtVisitante" type="text" placeholder="Usuario"
-                aria-label="Search">
-
-        </div>
-
-       
-        <div class="text-center contenedor_genero">
-            <a href="javascript:iniciarInvitado()">
-                <img src="img/buton.png" class="rounded imagen_iniciar" alt="...">
-                <div class="centrado_genero">Iniciar</div>
-            </a>
-        </div>
-
     </div>
-
-
 </div>
