@@ -218,7 +218,7 @@ router.post('/edit_contrasena/:id', isLoggedIn, async (req, res) => {
         //console.log("_________________________validado __________________________________________________")
         if(newcontraseña==repircontraseña){
             const contra_encly= await helpers.encryptPassword(newcontraseña);
-            const sql= 'UPDATE usuario set contraseña= "'+contra_encly+'" WHERE id_usuario = '+id;
+            const sql= 'UPDATE usuario set contrasena= "'+contra_encly+'" WHERE id_usuario = '+id;
             ///console.log("_________________________exito __________________________________________________")
             await pool.query(sql);    
             req.flash('Exito!!', 'Contraseña actualizado correctamente');
