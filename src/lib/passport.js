@@ -6,13 +6,13 @@ const helpers = require('./helpers');
 
 passport.use('local.signin', new LocalStrategy({
   usernameField: 'usuario',
-  passwordField: 'contraseña',
+  passwordField: 'contrasena',
   passReqToCallback: true
-}, async (req, usuario, contraseña, done) => {
+}, async (req, usuario, contrasena, done) => {
   const rows = await pool.query('SELECT * FROM usuario WHERE usuario = ?', [usuario]);
   if (rows.length > 0) {
     const user = rows[0];
-    const validPassword = await helpers.matchPassword(contraseña, user.contraseña)
+    const validPassword = await helpers.matchPassword(contrasena, user.contrasena)
     if (validPassword) {
       done(null, user, req.flash('success', 'Bienvenido' + user.usuario));
     } else {
@@ -25,9 +25,9 @@ passport.use('local.signin', new LocalStrategy({
 
 passport.use('local.visit', new LocalStrategy({
   usernameField: 'usuario',
-  passwordField: 'contraseña',
+  passwordField: 'contrasena',
   passReqToCallback: true
-}, async (req, usuario, contraseña, done) => {
+}, async (req, usuario, contrasena, done) => {
   var us = 0;
 
   do {
@@ -41,21 +41,21 @@ passport.use('local.visit', new LocalStrategy({
 
 passport.use('local.signup', new LocalStrategy({
   usernameField: 'usuario',
-  passwordField: 'contraseña',
+  passwordField: 'contrasena',
   passReqToCallback: true
-}, async (req, usuario, contraseña, done) => {
+}, async (req, usuario, contrasena, done) => {
 
   const { nombre, telefono } = req.body;
   const pts=0;
   let newUser = {
     nombre,
     usuario,    
-    contraseña, 
+    contrasena, 
     telefono  ,
     pts
     
   };
-  newUser.contraseña = await helpers.encryptPassword(contraseña);
+  newUser.contrasena = await helpers.encryptPassword(contrasena);
   // Saving in the Database
   const result = await pool.query('INSERT INTO usuario SET ? ', newUser);
   newUser.id_usuario = result.insertId;
