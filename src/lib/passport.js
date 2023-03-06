@@ -57,7 +57,7 @@ passport.use('local.signup', new LocalStrategy({
   };
   newUser.contrasena = await helpers.encryptPassword(contrasena);
   // Saving in the Database
-  const result = await pool.query('INSERT INTO usuario SET ? ', newUser);
+  const result = await pool.query('INSERT INTO usuario SET ? ', newUser);  
   newUser.id_usuario = result.insertId;
   return done(null, newUser);
 }));
