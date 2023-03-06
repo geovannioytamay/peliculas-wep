@@ -19,11 +19,9 @@ pool.getConnection((err, connection) => {
     }
     else console.error('Otro error no importante:' + err);
   }
-console.log("host:"+connection.config.host);
-console.log("user:"+connection.config.user);
-console.log("password:"+connection.config.password);
-console.log("port:"+connection.config.port);
-console.log("database:"+connection.config.database);
+  console.log("informacion __________________________________-");
+console.log(connection);
+
 
   if (connection) {
     connection.release();
