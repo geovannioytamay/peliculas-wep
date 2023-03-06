@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const { promisify }= require('util');
+const { promisify } = require('util');
 
 const { database } = require('./keys');
 
@@ -16,11 +16,13 @@ pool.getConnection((err, connection) => {
     if (err.code === 'ECONNREFUSED') {
       console.error('Database connection was refused');
     }
-    else  console.error('Otro error no importante:'+err);
+    else console.error('Otro error no importante:' + err);
   }
 
-  if (connection) connection.release();
-  console.log('DB is Connected :)');
+  if (connection) {
+    connection.release();
+    console.log('DB is Connected :)');
+  }
 
   return;
 });

@@ -2,9 +2,7 @@ module.exports = {
 
     database: {
         connectionLimit: 10,
-        timeout  : 100000, 
-        multipleStatements: true, 
-        acquireTimeout: Number.POSITIVE_INFINITY,
+        timeout  : 100000,         
         host: DB_HOST=process.env.DB_HOST || 'localhost',
         user: DB_USER=process.env.DB_USER || 'root',
         password: DB_PASSWORD=process.env.DB_PASSWORD || 'root',
