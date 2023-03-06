@@ -7,12 +7,12 @@ const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 // SIGNUP
 router.get('/registrar', isNotLoggedIn, (req, res) => {
   const gen="false";
-  res.render('auth/registrar', {gen});
+  res.render('auth/iniciar', {gen});
 });
 
 router.post('/registrar', isNotLoggedIn, passport.authenticate('local.signup', {
   successRedirect: '/peliculas',
-  failureRedirect: '/registrar',
+  failureRedirect: '/iniciar',
   failureFlash: true
 }));
 

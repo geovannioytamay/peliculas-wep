@@ -12,25 +12,16 @@
             {{#if user}}
             <div class="dropdown-divider"></div>
             <div class="list-group">
-                <a href="/perfil" class="list-group-item list-group-item-action disabled">Perfil</a>               
+                <a href="/perfil" class="list-group-item list-group-item-action disabled">Perfil</a>
                 <a href="/logout" class="list-group-item list-group-item-action disabled">Cerra Sesion</a>
             </div>
             {{else}}
             <div class="dropdown-divider"></div>
-            <div class="text-center contenedor_genero">
-                <a href="/iniciar">
-                    <img src="img/buton.png" class="rounded imagen_genero" alt="...">
-                    <div class="centrado_genero">Iniciar Sesion</div>
-                </a>
+            <div class="list-group">
+                <a href="/iniciar" class="list-group-item list-group-item-action disabled">Iniciar Sesion</a>
+                <a href="/registrar" class="list-group-item list-group-item-action disabled">Registrarse</a>
             </div>
 
-            <div class="dropdown-divider"></div>
-            <div class="text-center contenedor_genero">
-                <a href="/registrar">
-                    <img src="img/buton.png" class="rounded imagen_genero" alt="...">
-                    <div class="centrado_genero">Registrarse</div>
-                </a>
-            </div>
             {{/if}}
         </div>
 
