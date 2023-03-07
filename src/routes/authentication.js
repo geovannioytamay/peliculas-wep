@@ -25,7 +25,7 @@ router.get('/iniciar', isNotLoggedIn, (req, res) => {
 
 router.post('/iniciar', isNotLoggedIn, (req, res, next) => {
   req.check('usuario', 'Usuario es requerido').notEmpty();
-  req.check('contraseña', 'Contraseña es requerido').notEmpty();
+  req.check('contrasena', 'Contraseña es requerido').notEmpty();
   const errors = req.validationErrors();
   if (errors.length > 0) {
     req.flash('message', errors[0].msg);
