@@ -7,6 +7,7 @@ function contador(){
 function jsRemoveWindowLoad() {
     // eliminamos el div que bloquea pantalla
     $("#WindowLoad").remove();
+    cantPeliculas=0;
  
 }
 window.addEventListener("load", function () {
@@ -37,7 +38,10 @@ function jsShowWindowLoad(mensaje) {
     var heightdivsito = alto/4 - parseInt(height)/2;//Se utiliza en el margen superior, para centrar
  
    //imagen que aparece mientras nuestro div es mostrado y da apariencia de cargando
-    imgCentro = "<div style='text-align:center;height:" + alto + "px;'><div  style='color:#fff;margin-top:" + heightdivsito + "px; font-size:50px;font-weight:bold'>" + mensaje + "</div><img  src='img/cargando.gif'></div>";
+    imgCentro = "<div style='text-align:center;height:" + alto 
+     + "px; position: relative;'><img  src='img/cargando.gif'><div  style='color:#fff;margin-top:"
+     + 0 + "px; font-size:50px;font-weight:bold'>" 
+     + mensaje + "</div></div>";
  
         //creamos el div que bloquea grande------------------------------------------
         div = document.createElement("div");
