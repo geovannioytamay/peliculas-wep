@@ -1,3 +1,9 @@
+var cantPeliculas=0;
+function contador(){
+    cantPeliculas++;
+    if(cantPeliculas==50)jsRemoveWindowLoad();
+}
+
 function jsRemoveWindowLoad() {
     // eliminamos el div que bloquea pantalla
     $("#WindowLoad").remove();

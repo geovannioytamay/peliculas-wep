@@ -40,7 +40,7 @@ function iniciarInvitado(){
     localStorage.setItem("visitante", visitante);
     window.location.href="/peliculas";
   }else{
-    alert("Ingres su nombre para indenfitifarlo");
+    alert("Ingrese su nombre para idenfitifarlo");
   }
     
 }
@@ -144,9 +144,6 @@ window.addEventListener("load", function () {
 
   if (window.location.href.indexOf("peliculas") >= 0) {
   //  document.getElementById("genero").style.display = "block";
-
-
-
     var memoria = localStorage.getItem("peliSelecionados");
     if (memoria) {
       var pelis_Select = memoria.split(" ");
@@ -161,6 +158,7 @@ window.addEventListener("load", function () {
 
         /// localStorage.removeItem("peliSelecionados")// elimiar en la memori todos lo seleccionado
         //console.log("peli: "+pelis_Select[i])
+        
       }
     
     }

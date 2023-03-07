@@ -25,7 +25,6 @@ router.get('/save', async (req, res) => {
         id_usuario = query.visitante;
     }
 
-
     try {
         if (query.save) {
             id_pelicula = query.save;
@@ -88,18 +87,6 @@ router.get('/delete', async (req, res) => {
 
 });
 
-router.post('/add', isLoggedIn, async (req, res) => {
-    const { title, url, description } = req.body;
-    const newLink = {
-        title,
-        url,
-        description,
-        users_id: req.user.id
-    };
-    await pool.query('INSERT INTO links set ?', [newLink]);
-    req.flash('success', 'Link Saved Successfully');
-    res.redirect('/peliculas');
-});
 
 
 router.get('/', async (req, res) => {
@@ -162,12 +149,7 @@ router.get('/genero', isLoggedIn, async (req, res) => {
     //por jemploe links: datos
 });
 
-router.get('/delete/:id', isLoggedIn, async (req, res) => {
-    const { id } = req.params;
-    await pool.query('DELETE FROM links WHERE ID = ?', [id]);
-    req.flash('success', 'Link Removed Successfully');
-    res.redirect('/peliculas');
-});
+
 
 router.post('/:genero', isLoggedIn, async (req, res) => {
     const { genero } = req.params;
@@ -178,12 +160,7 @@ router.post('/:genero', isLoggedIn, async (req, res) => {
 });
 
 
-router.get('/guardar', isLoggedIn, async (req, res) => {
-    //const { id } = req.params;
-    //const links = await pool.query('SELECT * FROM links WHERE id = ?', [id]);
-    console.log("links::::::::::::::::::::::::::::::::::::::::::::");
-    //res.render('peliculas/edit', { link: links[0] });
-});
+
 router.post('/edit_nombre/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const {nombre} = req.body;

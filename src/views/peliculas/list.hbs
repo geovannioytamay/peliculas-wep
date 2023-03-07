@@ -1,7 +1,13 @@
 <div class="container p-1">
     <div class="row row-cols-1 row-cols-md-3">
-        
+
+       
+
         {{#each pelis}}
+         <script type="text/javascript">
+         contador();
+          </script>
+
         <div style="width: 15rem;  ">
             <div class="card-body text-success contenedor">
 
@@ -9,9 +15,9 @@
                 <a href="javascript:select('{{id_pelicula}}')">
                     <img id={{id_pelicula}} src="img/portadas/{{imagen}}" width="00" height="300" class="card-img-top p"
                         alt="" class="rounded-lg">
-                       
-                    <div class="anio rounded">{{anio}}</div>
-                    <div class="pts rounded">1pts</div>
+
+                    <div class="anio rounded">{{anio }} </div>
+                    <div class="pts rounded">{{pts}}</div>
                 </a>
             </div>
             <div class="centro">
@@ -35,11 +41,11 @@
         {{/each}}
     </div>
 
-   
 
 
 
-{{>mesage}}
-{{>infomacion}}
-{{>trailer}}
-{{>buscar}}
+
+    {{>mesage}}
+    {{>infomacion}}
+    {{>trailer}}
+    {{>buscar}}
