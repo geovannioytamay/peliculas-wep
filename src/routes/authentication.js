@@ -49,6 +49,10 @@ router.get('/perfil', isLoggedIn, (req, res) => {
   res.render('perfil');
 });
 
+router.get('/admin', isLoggedIn, (req, res) => {
+  res.render('admin');
+});
+
 
 
 

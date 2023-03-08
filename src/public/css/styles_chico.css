@@ -353,6 +353,8 @@ aside {
 .descripcion {
   font-size: 30px;
   text-align: justify;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
 }
 
 .encanezado_msg {

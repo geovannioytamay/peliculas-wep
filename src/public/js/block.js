@@ -12,6 +12,7 @@ function jsRemoveWindowLoad() {
 }
 window.addEventListener("load", function () {
     jsRemoveWindowLoad();
+    
 });
 
 jsShowWindowLoad("Cargando...");

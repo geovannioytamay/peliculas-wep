@@ -76,4 +76,6 @@ window.addEventListener('load', () => {// cuando ya carge los elementos html
     
   });
 
+  
+
 });

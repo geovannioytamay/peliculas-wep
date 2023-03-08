@@ -60,6 +60,8 @@ router.get('/pedidos', async (req, res) => {
         return resolve(pedidos);
     });
 });
+
+
 router.get('/delete', async (req, res) => {
     try {
         var id_usuario = req.user.id_usuario;
