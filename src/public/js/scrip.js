@@ -13,8 +13,7 @@ this.fetch("/peliculas/pedidos")
 
 */
 function iniciar(){  
-  localStorage.clear();  
- 
+    localStorage.clear();   
   document.getElementById("iniciar").action="/iniciar" 
   document.getElementById("iniciar").submit() ;
   

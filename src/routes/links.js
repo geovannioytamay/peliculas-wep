@@ -20,7 +20,6 @@ router.get('/save', async (req, res) => {
     var id_usuario;
     try {
         var id_usuario = req.user.id_usuario;
-
     } catch (err) {
         id_usuario = query.visitante;
     }

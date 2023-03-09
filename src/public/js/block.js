@@ -1,7 +1,7 @@
 var cantPeliculas=0;
 function contador(){
     cantPeliculas++;
-    if(cantPeliculas==1)jsRemoveWindowLoad();
+    if(cantPeliculas==500)jsRemoveWindowLoad();
 }
 
 function jsRemoveWindowLoad() {

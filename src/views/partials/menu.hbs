@@ -1,27 +1,24 @@
 <div class="scrollInf ventana_genero" id="ventana_menu">
-
     <div class="card  ">
         <div class="">
 
             <h4 class="txtblack" id="nombre">Usuario</h4>
         </div>
         <div class="card-body">
-
-
-
             {{#if user}}
-            <div class="dropdown-divider"></div>
-            <div class="list-group">
-                <a href="/perfil" class="list-group-item list-group-item-action disabled">Perfil</a>
-                <a href="/logout" class="list-group-item list-group-item-action disabled">Cerra Sesion</a>
-            </div>
+            <div class="dropdown-divider"> </div>
+                <div class="list-group">
+                    <a href="/perfil" class="list-group-item list-group-item-action disabled">Perfil</a>
+                    <a href="/logout" class="list-group-item list-group-item-action disabled">Cerra Sesion</a>
+                </div>
+           
             {{else}}
             <div class="dropdown-divider"></div>
-            <div class="list-group">
-                <a href="/iniciar" class="list-group-item list-group-item-action disabled">Iniciar Sesion</a>
-                <a href="/registrar" class="list-group-item list-group-item-action disabled">Registrarse</a>
-            </div>
-
+                <div class="list-group">
+                    <a href="/iniciar" class="list-group-item list-group-item-action disabled">Iniciar Sesion</a>
+                    <a href="/registrar" class="list-group-item list-group-item-action disabled">Registrarse</a>
+                </div>
+                        
             {{/if}}
         </div>
 
@@ -39,7 +36,6 @@
         </div>
         <div class="card-body">
             <div class="dropdown-divider"></div>
-
             <div class="list-group">
                 <a href="/peliculas" class="list-group-item list-group-item-action disabled">Todos</a>
                 {{#each genero}}

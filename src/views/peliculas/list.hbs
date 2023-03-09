@@ -5,25 +5,23 @@
 
         {{#each pelis}}
          <script type="text/javascript">
-         contador();
+             contador();
           </script>
 
         <div style="width: 15rem;  ">
             <div class="card-body text-success contenedor">
-
-
                 <a href="javascript:select('{{id_pelicula}}')">
                     <img id={{id_pelicula}} src="img/portadas/{{imagen}}" width="00" height="300" class="card-img-top p"
                         alt="" class="rounded-lg">
 
-                    <div class="anio rounded">{{anio }} </div>
+                    <div class="anio rounded">{{anio}} </div>
                     <div class="pts rounded">{{pts}}</div>
                 </a>
             </div>
             <div class="centro">
 
-                <a href="javascript:abrir_sinopsis(' {{nombre}}',  '{{descripcion}}', '{{trailer}}')" class="imper"
-                    align="center"> {{nombre}} </a>
+                <a href="javascript:abrir_sinopsis(' {{nombre}}',  '{{descripcion}}', '{{trailer}}')" class="imper nombre"
+                    align="center">  {{nombre}} </a>
 
 
             </div>

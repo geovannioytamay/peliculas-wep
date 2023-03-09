@@ -20,12 +20,12 @@ router.post('/registrar', isNotLoggedIn, passport.authenticate('local.signup', {
 // SINGIN
 router.get('/iniciar', isNotLoggedIn, (req, res) => {
   const gen="false";
-  res.render('auth/iniciar', {gen});
+ res.render('auth/iniciar', {gen});
 });
 
 router.post('/iniciar', isNotLoggedIn, (req, res, next) => {
   req.check('usuario', 'Usuario es requerido').notEmpty();
-  req.check('contrasena', 'Contraseña es requerido').notEmpty();
+  req.check('contrasena', 'Contraseña es requerido').notEmpty();  
   const errors = req.validationErrors();
   if (errors.length > 0) {
     req.flash('message', errors[0].msg);
@@ -41,19 +41,13 @@ router.post('/iniciar', isNotLoggedIn, (req, res, next) => {
 
 
 router.get('/logout', isLoggedIn, (req, res) => {
-  req.logOut();
+  req.logOut();  
   res.redirect('/iniciar');
 });
 
 router.get('/perfil', isLoggedIn, (req, res) => {
   res.render('perfil');
 });
-
-router.get('/admin', isLoggedIn, (req, res) => {
-  res.render('admin');
-});
-
-
 
 
 router.get('/edit_usuario', isLoggedIn, async (req, res) => {
