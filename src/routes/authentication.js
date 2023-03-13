@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const passport = require('passport');
 const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
@@ -66,4 +65,23 @@ router.get('/edit_contrasena', isLoggedIn, async (req, res) => {
   res.render('edit_contrasena', { id_usuario });
 });
 
+///iniciar con rede sosiales
+router.get('/auth/twitter', passport.authenticate('twitter'));
+router.get('/auth/facebook', passport.authenticate('facebook'));
+router.get('/auth/google', passport.authenticate('google'));
+router.get('/auth/instagram', passport.authenticate('instagram'));
+
+//callbacks
+router.get('/auth/twitter/callback', passport.authenticate('twitter',
+  { successRedirect: '/peliculas', failureRedirect: '/inicio' }
+));
+router.get('/auth/facebook/callback', passport.authenticate('facebook',
+  { successRedirect: '/peliculas', failureRedirect: '/inicio' }
+));
+router.get('/auth/google/callback', passport.authenticate('google',
+  { successRedirect: '/peliculas', failureRedirect: '/inicio' }
+));
+router.get('/auth/instagram/callback', passport.authenticate('instagram',
+  { successRedirect: '/peliculas', failureRedirect: '/inicio' }
+));
 module.exports = router;

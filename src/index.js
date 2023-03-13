@@ -15,6 +15,7 @@ const { database } = require('./keys');
 // Intializations 
 const app = express();
 require('./lib/passport');
+require('./passport')(passport);
 
 // Settings
 app.set('port', process.env.PORT || 3000);//process.env.PORT: para ver si el proveeror me dio un puerto
@@ -27,6 +28,7 @@ app.engine('.hbs', exphbs({
   helpers: require('./lib/handlebars')
 }))
 app.set('view engine', '.hbs');
+
 
 // Middlewares
 app.use(morgan('dev'));
@@ -60,6 +62,8 @@ app.use('/peliculas', require('./routes/links'));
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));
+
+//app.use(express.session({ secret: 'lollllo' }));
 
 // Starting
 app.listen(app.get('port'), () => {
