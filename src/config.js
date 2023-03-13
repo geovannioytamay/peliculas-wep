@@ -4,8 +4,8 @@ var config={
         secret:'kjcnkajnacjdrnrm,ere'
     },
     facebook:{
-        key:'578796390954993',
-        secret:'a8171c90f3119df38d8e880e2acb4c9a'
+        key:'769266484381034',
+        secret:'5e4d0a16360f9990a0cd039d4bd733b2'
     },
     google:{
         key:'AIzaSyBOHAB7i7x1CCkdK3E4jD2bv3LAI85QMv0',
