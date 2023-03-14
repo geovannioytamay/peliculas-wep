@@ -8,7 +8,7 @@ var config={
         secret:SECRET_FACEBOOK=process.env.SECRET_FACEBOOK || '5e4d0a16360f9990a0cd039d4bd733b2'
     },
     google:{
-        key: KEY_GOOGLE=process.env.KEY_GOOLGE ||'AIzaSyBOHAB7i7x1CCkdK3E4jD2bv3LAI85QMv0',
+        key: KEY_GOOGLE=process.env.KEY_GOOLGE ||'468494062181-566chj0g6sjhpp52ja5vac3v84he004n.apps.googleusercontent.com',
         secret: SECRET_GOOGLE=process.env.SECRET_GOOGLE ||'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'
     },
     instagram:{

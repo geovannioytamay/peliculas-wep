@@ -59,6 +59,7 @@ module.exports = function (passport) {
 		callbackURL: '/auth/google/callback',
 		//profileFields: ['id', 'displayName', /*'provider',*/ 'photos']
 	}, function (accessToken, refreshToken, profile, done) {
+		// profile.emails[0].value, para optnener su correo
 		  sesion(profile.id,profile.displayName, profile.photos[0].value,profile.provider);		  		  
 		  return done(null, profile.id);			
 	}));
