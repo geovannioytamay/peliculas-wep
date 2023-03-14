@@ -33,8 +33,8 @@ module.exports = function (passport) {
 
 	// Configuración del autenticado con Twitter
 	passport.use(new TwitterStrategy({
-		consumerKey: config.twitter.key,
-		consumerSecret: config.twitter.secret,
+		consumerKey:  process.env.KEY_TWITTER || config.twitter.key,
+		consumerSecret:  process.env.SECRET_TWITTER || config.twitter.secret,
 		callbackURL: '/auth/twitter/callback'
 	}, function (accessToken, refreshToken, profile, done) {		
 		sesion(profile.id,profile.displayName, profile.photos[0].value,profile.provider);		  		  
@@ -42,9 +42,9 @@ module.exports = function (passport) {
 	}));
 	// Configuración del autenticado con Facebook
 	passport.use(new FacebookStrategy({
-		clientID: config.facebook.key,
-		clientSecret: config.facebook.secret,
-		callbackURL: '/auth/facebook/callback',
+		clientID: process.env.KEY_FACEBOOK || config.facebook.key,
+		clientSecret:  process.env.SECRET_FACEBOOK || config.facebook.secret,
+		callbackURL:'/auth/facebook/callback',
 		profileFields: ['id', 'displayName', /*'provider',*/ 'photos']
 	}, function (accessToken, refreshToken, profile, done) {
 
@@ -54,8 +54,8 @@ module.exports = function (passport) {
 	}));
 	// Configuración del autenticado con google
 	passport.use(new GoogleStrategy({
-		clientID: config.google.key,
-		clientSecret: config.google.secret,
+		clientID:  process.env.KEY_GOOGLE || config.google.key,
+		clientSecret:  process.env.SECRET_GOOGLE || config.google.secret,
 		callbackURL: '/auth/google/callback',
 		//profileFields: ['id', 'displayName', /*'provider',*/ 'photos']
 	}, function (accessToken, refreshToken, profile, done) {
@@ -66,8 +66,8 @@ module.exports = function (passport) {
 
 	// Configuración del autenticado con Facebook
 	passport.use(new InstagramStrategy({
-		clientID: config.instagram.key,
-		clientSecret: config.instagram.secret,
+		clientID:  process.env.KEY_INSTAGRAM || config.instagram.key,
+		clientSecret:  process.env.SECRET_INSTAGRAM || config.instagram.secret,
 		callbackURL: '/auth/instagram/callback',
 		profileFields: ['id', 'displayName', /*'provider',*/ 'photos']
 	}, function (accessToken, refreshToken, profile, done) {

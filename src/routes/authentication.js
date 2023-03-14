@@ -68,7 +68,8 @@ router.get('/edit_contrasena', isLoggedIn, async (req, res) => {
 ///iniciar con rede sosiales
 router.get('/auth/twitter', passport.authenticate('twitter'));
 router.get('/auth/facebook', passport.authenticate('facebook'));
-router.get('/auth/google', passport.authenticate('google'));
+router.get('/auth/google', passport.authenticate('google',{
+  scope: 'profile'}));
 router.get('/auth/instagram', passport.authenticate('instagram'));
 
 //callbacks
