@@ -106,27 +106,25 @@ router.get('/', async (req, res) => {
 
     var pelis = null;
     const genero = await pool.query('SELECT genero FROM genero');
-    var qrcode;
-
+    
+    var id_usuario;
 
     // console.log("busca "+gen );
     if (proximo) {
         pelis = await pool.query('SELECT * from pelicula where descargado=0 order by anio desc, id_pelicula desc');
 
     } else
-        if (lis) {
-            var id_usuario;
+        if (lis) {            
             try {
                 id_usuario = req.user.id_usuario;
             } catch (err) {
                 id_usuario = query.visitante;
-            }
-            qrcode = getQtCode();
+            }          
 
             pelis = await pool.query('SELECT* FROM (pelicula INNER JOIN pedidos)'
                 + ' WHERE pelicula.id_pelicula = pedidos.id_pelicula AND id_usuario= ?', id_usuario);
-
-        } else
+                
+       } else
             if (gen) {
                 pelis = await pool.query('SELECT* FROM (pelicula INNER JOIN pelicula_genero ) WHERE pelicula.id_pelicula = pelicula_genero.id_pelicula AND descargado=1 and pelicula_genero.genero= ? ORDER BY pelicula.anio DESC, pelicula.id_pelicula desc', gen);
             } else
@@ -139,7 +137,7 @@ router.get('/', async (req, res) => {
                 }
     
     if (lis) {
-        qrcode.toDataURL("info", (er, src) => {
+        qrcode.toDataURL(idPeliculas(pelis) + " "+id_usuario, (er, src) => {
             res.render('peliculas/list', { pelis, genero, src });
         });
     } else
@@ -147,18 +145,17 @@ router.get('/', async (req, res) => {
 
 });
 
-function getQtCode() {
-    var info = "hola bato"
-    var qr = "";
-    qrcode.toDataURL(info, (er, src) => {
+function idPeliculas(pelicula){
+ var idPeliculas="";
+ pelicula.forEach((pelicula, index) => {
+    idPeliculas=idPeliculas+" "+pelicula.id_pelicula
+    console.log(idPeliculas);
+});
 
-        while (qr == "") {
-            console.log("esperando______________________");
-            qr = src;
-        }
-        console.log(qr)
-        return src;
-    });
+return idPeliculas;
+
+
+
 }
 
 
