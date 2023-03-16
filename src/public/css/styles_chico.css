@@ -172,9 +172,10 @@ a{color:inherit;text-decoration:none}
 }
 .iconos{
   display: flex;
-  justify-content: center;
-  
-  
+  justify-content: center; 
+}
+.ocultar{
+  display: none;
 }
 .foot-lnk{
 	text-align:center;

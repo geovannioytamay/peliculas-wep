@@ -1,12 +1,12 @@
 <div class="container p-1">
     <div class="row row-cols-1 row-cols-md-3">
 
-       
+
 
         {{#each pelis}}
-         <script type="text/javascript">
-             contador();
-          </script>
+        <script type="text/javascript">
+            contador();
+        </script>
 
         <div style="width: 15rem;  ">
             <div class="card-body text-success contenedor">
@@ -20,8 +20,8 @@
             </div>
             <div class="centro">
 
-                <a href="javascript:abrir_sinopsis(' {{nombre}}',  '{{descripcion}}', '{{trailer}}')" class="imper nombre"
-                    align="center">  {{nombre}} </a>
+                <a href="javascript:abrir_sinopsis(' {{nombre}}',  '{{descripcion}}', '{{trailer}}')"
+                    class="imper nombre" align="center"> {{nombre}} </a>
 
 
             </div>
@@ -38,6 +38,13 @@
         </div>
         {{/each}}
     </div>
+
+    
+    <div class="container">
+        <img src={{src}} alt="Codigo Qr">
+        <a href="/descargar" role="button" class="btn btn-primary">Descargar Qr</a>
+    </div>
+   
 
 
 
