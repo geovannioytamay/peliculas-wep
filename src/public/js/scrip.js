@@ -139,6 +139,22 @@ function elimiarSlect() {
   }
 }
 
+function decargarQR(imagen, nombre){
+  nombre='QR'+nombre+'.jpg'
+fetch(imagen)
+.then(resp=>resp.blob())
+.then(blob=>{
+  const url=window.URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.style.display='none';
+  a.href=url;
+  a.download=nombre;
+  a.click();
+  window.URL.revokeObjectURL(url);
+})
+.catch(()=> alert('Intente de nuevo, hubo un error en la descaraga'));
+}
+
 window.addEventListener("load", function () {
 
   if (window.location.href.indexOf("peliculas") >= 0) {

@@ -40,11 +40,22 @@
     </div>
 
     {{#if pelis}}
-    <div class="container">
-        <img src={{src}} alt="Codigo Qr">
-        <a href="/descargar" role="button" class="btn btn-primary">Descargar Qr</a>
+    <div class=" foot-lnk container mt-3">
+        <div class="row-cols-sm-3">
+            <div class=" mb-3">
+                <a href="javascript:decargarQR(' {{src}}', '{{user.nombre}}')">
+                    <img class="qrtam border-top" src={{src}} alt="QR code">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title text-center">Si no cuentas con internet siempre, descarga el código.</h4>
+                    <p class="card-text text-center">Click al código QR para descargar</p>
+                </div>
+            </div>
+        </div>
     </div>
+
     {{/if}}
+
 
 
 

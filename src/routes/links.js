@@ -149,7 +149,7 @@ function idPeliculas(pelicula){
  var idPeliculas="";
  pelicula.forEach((pelicula, index) => {
     idPeliculas=idPeliculas+" "+pelicula.id_pelicula
-    console.log(idPeliculas);
+   // console.log(idPeliculas);
 });
 
 return idPeliculas;
