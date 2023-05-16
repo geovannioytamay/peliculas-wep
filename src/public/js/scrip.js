@@ -17,6 +17,22 @@ function ponerPeso(id_pelicula, idDiv){
   divPeso.innerHTML = covertidor(idDiv);
 }
 
+
+function copiar(){
+
+  var codigo= document.getElementById("codigo").textContent;
+  navigator.clipboard.writeText(codigo)
+  .then(() => {
+    alert("Código Copiado");
+  })
+  .catch(err => {
+    alert("No se copio, intente de nuevo");
+  })
+ 
+
+    
+}
+
 function covertidor(peso) {
   Math.floor(peso);
   var MB = 0;

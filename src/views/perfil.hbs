@@ -5,7 +5,7 @@
     <div class="card-body">
         <h5 class="card-title">Informacion</h5>
         <div></div>
-        <h3>Nombre: {{user.nombre}}</h3>  <div class="contenedorEdit"><i class="bi bi-pencil-square"></i></div>
+        <h3>Nombre: {{user.nombre}}</h3> 
         <h3>Telefono: {{user.telefono}}</h3>
         <h3>Usuario: {{user.usuario}}</h3>
         <h3>Contraseña: **************</h3>
@@ -28,7 +28,7 @@
     </div>
     <div class="card-body">
          <h5 class="card-title">Haz que un amigo se registre, comparte  este codigo y gana 50 puntos mas en su primera compra</h5>
-        <a href="#" class="card-link">{{user.id_usuario}} </a>
+        <a href="javascript:copiar()" id="codigo" class="card-link">{{user.id_usuario}} </a>
         <i class="bi bi-clipboard-check"></i>
                
     </div>
