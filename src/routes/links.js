@@ -4,7 +4,6 @@ const qrcode = require('qrcode');
 //pool = db
 const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
-
 const helpers = require('../lib/helpers');
 
 var http = require("http");
@@ -12,10 +11,9 @@ var url = require("url");
 
 router.get('/add', isLoggedIn, () => {
     console.log('Accessing the secret section ...');
-
 });
 
-router.get('/save', async (req, res) => {
+router.get('/save', isLoggedIn, async (req, res) => {
     var query = url.parse(req.url, true).query;
     var id_pelicula;
     var id_usuario;
@@ -47,7 +45,7 @@ router.get('/save', async (req, res) => {
 
 });
 
-router.get('/pedidos', async (req, res) => {
+router.get('/pedidos', isLoggedIn, async (req, res) => {
     var id_usuario = req.user.id_usuario;
 
     var pelis = await pool.query('SELECT id_pelicula FROM pedidos WHERE id_usuario =?', id_usuario);
@@ -62,7 +60,7 @@ router.get('/pedidos', async (req, res) => {
 });
 
 
-router.get('/delete', async (req, res) => {
+router.get('/delete', isLoggedIn, async (req, res) => {
     try {
         var id_usuario = req.user.id_usuario;
 
@@ -91,7 +89,7 @@ router.get('/delete', async (req, res) => {
 
 
 
-router.get('/', async (req, res) => {
+router.get('/', isLoggedIn, async (req, res) => {
     //   const pelis = await pool.query('SELECT * FROM (pelicula inner join usuario_pelicula) WHERE pelicula.id_pelicula = usuario_pelicula.id_pelicula and  id_usuario = ?',
     //  [req.user.id_usuario]);
 
@@ -101,61 +99,62 @@ router.get('/', async (req, res) => {
     var gen = query.genero;
     var lis = query.listado;// pedios
     var proximo = query.proximo;//los que aun no estan descargados
-
-
-
+    var id_usuario = "";
     var pelis = null;
+
+    try {
+        id_usuario = req.user.id_usuario;
+    } catch (err) {
+        id_usuario = query.visitante;
+    }
+
     const genero = await pool.query('SELECT genero FROM genero');
     
-    var id_usuario;
+    var carrito = await pool.query('SELECT* FROM (pelicula INNER JOIN pedidos)'
+        + ' WHERE pelicula.id_pelicula = pedidos.id_pelicula AND id_usuario= ?', id_usuario);
+
 
     // console.log("busca "+gen );
     if (proximo) {
         pelis = await pool.query('SELECT * from pelicula where descargado=0 order by anio desc, id_pelicula desc');
 
     } else
-        if (lis) {            
-            try {
-                id_usuario = req.user.id_usuario;
-            } catch (err) {
-                id_usuario = query.visitante;
-            }          
-
-            pelis = await pool.query('SELECT* FROM (pelicula INNER JOIN pedidos)'
-                + ' WHERE pelicula.id_pelicula = pedidos.id_pelicula AND id_usuario= ?', id_usuario);
-                
-       } else
+        if (lis) {
+            pelis = carrito;
+        } else
             if (gen) {
                 pelis = await pool.query('SELECT* FROM (pelicula INNER JOIN pelicula_genero ) WHERE pelicula.id_pelicula = pelicula_genero.id_pelicula AND descargado=1 and pelicula_genero.genero= ? ORDER BY pelicula.anio DESC, pelicula.id_pelicula desc', gen);
             } else
                 if (buscar) {
                     buscar = '%' + buscar + '%';
                     pelis = await pool.query('SELECT * from pelicula where nombre like ? and descargado=1 order by anio desc, id_pelicula desc', buscar);
-                } else {
+                } else {                   
                     pelis = await pool.query('SELECT * from pelicula where descargado=1 order by anio desc, id_pelicula desc');
 
                 }
-    
+
     if (lis) {
-        qrcode.toDataURL(idPeliculas(pelis) + " "+id_usuario, (er, src) => {
-            res.render('peliculas/list', { pelis, genero, src });
+        qrcode.toDataURL(idPeliculas(pelis) + " " + id_usuario, (er, src) => {
+            res.render('peliculas/list', { pelis, genero, carrito, src });
         });
     } else
-        res.render('peliculas/list', { pelis, genero, qrcode });
+        res.render('peliculas/list', { pelis, genero, carrito });
 
 });
 
-function idPeliculas(pelicula){
- var idPeliculas="";
- pelicula.forEach((pelicula, index) => {
-    idPeliculas=idPeliculas+" "+pelicula.id_pelicula
-   // console.log(idPeliculas);
-});
-
-return idPeliculas;
 
 
 
+
+
+function idPeliculas(pelicula) {
+    var idPeliculas = "";
+    pelicula.forEach((pelicula, index) => {
+        idPeliculas = idPeliculas + " " + pelicula.id_pelicula
+        // console.log(idPeliculas);
+    });
+
+    return idPeliculas;
 }
 
 
@@ -186,6 +185,15 @@ router.post('/edit_nombre/:id', isLoggedIn, async (req, res) => {
     //console.log(sql+"___________________________________________________________________________")
     await pool.query(sql);
     req.flash('Exito!!', 'Nombre actualizado correctamente');
+    res.redirect('/perfil');
+});
+router.post('/edit_telefono/:id', isLoggedIn, async (req, res) => {
+    const { id } = req.params;
+    const { telefono } = req.body;
+    const sql = 'UPDATE usuario set telefono= "' + telefono + '" WHERE id_usuario = ' + id;
+    //console.log(sql+"___________________________________________________________________________")
+    await pool.query(sql);
+    req.flash('Exito!!', 'Telefono actualizado correctamente');
     res.redirect('/perfil');
 });
 router.post('/edit_usaurio/:id', isLoggedIn, async (req, res) => {

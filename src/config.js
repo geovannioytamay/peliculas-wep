@@ -2,7 +2,7 @@ var config={
     twitter:{
         key:'23424234231jhkjhkj',
         secret:  'kjcnkajnacjdrnrm,ere'
-    },
+    },    
     facebook:{
         key:'769266484381034',
         secret: '5e4d0a16360f9990a0cd039d4bd733b2'

@@ -1,45 +1,46 @@
+
 <div class="container p-1">
     <div class="row row-cols-1 row-cols-md-3">
-
-
-
-        {{#each pelis}}
+        {{#each carrito}}
+        <div class="ocultar id_carrito" id="i{{id_pelicula}}"></div>
         <script type="text/javascript">
-            contador();
+            mostrarPedidosCant();           
         </script>
-
+        {{/each}}
+        {{#each pelis}}
         <div style="width: 15rem;  ">
             <div class="card-body text-success contenedor">
-                <a href="javascript:select('{{id_pelicula}}')">
+                <a href="javascript:select('{{id_pelicula}}', true)">
                     <img id={{id_pelicula}} src="img/portadas/{{imagen}}" width="00" height="300" class="card-img-top p"
                         alt="" class="rounded-lg">
 
                     <div class="anio rounded">{{anio}} </div>
-                    <div class="pts rounded">{{pts}}</div>
+                    <div id="{{id_pelicula}}{{peso}}" class="peso rounded"></div>
+                    <div class="pts rounded">{{pts}} pts</div>
+                    <script type="text/javascript">
+                        contador();
+                        ponerPeso('{{id_pelicula}}', {{ peso }})
+                    </script>
+
                 </a>
             </div>
             <div class="centro">
-
                 <a href="javascript:abrir_sinopsis(' {{nombre}}',  '{{descripcion}}', '{{trailer}}')"
                     class="imper nombre" align="center"> {{nombre}} </a>
-
-
             </div>
 
         </div>
+
         {{else}}
         <div class="col-md-4 mx-auto">
             <div class="card card-body text-center">
-
-
-                <p>No hay peliculas disponibles.</p>
-
+                <p>No hay peliculas.</p>
             </div>
         </div>
         {{/each}}
     </div>
 
-    {{#if pelis}}
+    {{#if src}} {{#if pelis}}
     <div class=" foot-lnk container mt-3">
         <div class="row-cols-sm-3">
             <div class=" mb-3">
@@ -47,22 +48,10 @@
                     <img class="qrtam border-top" src={{src}} alt="QR code">
                 </a>
                 <div class="card-body">
-                    <h4 class="card-title text-center">Si no cuentas con internet siempre, descarga el código.</h4>
+                    <h4 class="card-title text-center">Usa el codigo para realizar el pedido</h4>
                     <p class="card-text text-center">Click al código QR para descargar</p>
                 </div>
             </div>
         </div>
     </div>
-
-    {{/if}}
-
-
-
-
-
-
-
-    {{>mesage}}
-    {{>infomacion}}
-    {{>trailer}}
-    {{>buscar}}
+    {{/if}} {{/if}}

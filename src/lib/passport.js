@@ -46,21 +46,34 @@ passport.use('local.signup', new LocalStrategy({
 }, async (req, usuario, contrasena, done) => {
 
   const { nombre, telefono } = req.body;
-  const pts=0;
+  const pts = 0;
+  const fecha_creacion = getFecha(); 
+  const loginpor = "Local"
   let newUser = {
     nombre,
-    usuario,    
-    contrasena, 
-    telefono  ,
-    pts
-    
+    usuario,
+    contrasena,
+    telefono,
+    fecha_creacion,
+    loginpor,
+    pts    
   };
   newUser.contrasena = await helpers.encryptPassword(contrasena);
   // Saving in the Database
-  const result = await pool.query('INSERT INTO usuario SET ? ', newUser);  
+  const result = await pool.query('INSERT INTO usuario SET ? ', newUser);
   newUser.id_usuario = result.insertId;
   return done(null, newUser);
 }));
+
+
+
+function getFecha() {
+  var today = new Date();
+  var dia = (today.getDate());
+  var mes = (today.getMonth() + 1);
+  var anio = (today.getFullYear());
+  return dia + "/" + mes + "/" + anio;
+}
 
 passport.serializeUser((user, done) => {
   done(null, user.id_usuario);

@@ -5,21 +5,25 @@ const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 // SIGNUP
 router.get('/registrar', isNotLoggedIn, (req, res) => {
-  const gen="false";
-  res.render('auth/iniciar', {gen});
+  const login="false";// para ocucltar el  <aside> o herraminetas
+  res.render('auth/iniciar', {login});
 });
 
 router.post('/registrar', isNotLoggedIn, passport.authenticate('local.signup', {
   successRedirect: '/peliculas',
   failureRedirect: '/iniciar',
   failureFlash: true
+  
 }));
-
 
 // SINGIN
 router.get('/iniciar', isNotLoggedIn, (req, res) => {
-  const gen="false";
- res.render('auth/iniciar', {gen});
+  const login="false";// para ocucltar el  <aside> o herraminetas
+  res.render('auth/iniciar', {login});// enviamos login en el front-end
+});
+
+router.get('/iniciar2', (req, res) => {    // cuando se registre por rede sociales
+  res.render('auth/iniciar');
 });
 
 router.post('/iniciar', isNotLoggedIn, (req, res, next) => {
@@ -37,10 +41,8 @@ router.post('/iniciar', isNotLoggedIn, (req, res, next) => {
   })(req, res, next);
 });
 
-
-
-router.get('/logout', isLoggedIn, (req, res) => {
-  req.logOut();  
+router.get('/logout',  (req, res) => {  
+  req.logOut(); 
   res.redirect('/iniciar');
 });
 
@@ -54,11 +56,16 @@ router.get('/edit_usuario', isLoggedIn, async (req, res) => {
   //console.log(links);
   res.render('edit_usuario', { id_usuario });
 });
-router.get('/edit_nombre', isLoggedIn, async (req, res) => {
+router.get('/edit_telefono', isLoggedIn, async (req, res) => {
 const id_usuario  = req.user.id_usuario;    
 //console.log(links);
-res.render('edit_nombre', { id_usuario });
+res.render('edit_telefono', { id_usuario });
 });
+router.get('/edit_nombre', isLoggedIn, async (req, res) => {
+  const id_usuario  = req.user.id_usuario;    
+  //console.log(links);
+  res.render('edit_nombre', { id_usuario });
+  });
 router.get('/edit_contrasena', isLoggedIn, async (req, res) => {
   const id_usuario  = req.user.id_usuario;    
   //console.log(links);
@@ -66,23 +73,23 @@ router.get('/edit_contrasena', isLoggedIn, async (req, res) => {
 });
 
 ///iniciar con rede sosiales
-router.get('/auth/twitter', passport.authenticate('twitter'));
-router.get('/auth/facebook', passport.authenticate('facebook'));
-router.get('/auth/google', passport.authenticate('google',{
+router.get('/auth/twitter', isNotLoggedIn, passport.authenticate('twitter'));
+router.get('/auth/facebook',isNotLoggedIn, passport.authenticate('facebook'));
+router.get('/auth/google',isNotLoggedIn, passport.authenticate('google',{
   scope: 'profile'}));
-router.get('/auth/instagram', passport.authenticate('instagram'));
+router.get('/auth/instagram',isNotLoggedIn, passport.authenticate('instagram'));
 
 //callbacks
-router.get('/auth/twitter/callback', passport.authenticate('twitter',
+router.get('/auth/twitter/callback', isNotLoggedIn,passport.authenticate('twitter',
   { successRedirect: '/peliculas', failureRedirect: '/inicio' }
 ));
-router.get('/auth/facebook/callback', passport.authenticate('facebook',
+router.get('/auth/facebook/callback', isNotLoggedIn,passport.authenticate('facebook',
   { successRedirect: '/peliculas', failureRedirect: '/inicio' }
 ));
-router.get('/auth/google/callback', passport.authenticate('google',
+router.get('/auth/google/callback', isNotLoggedIn, passport.authenticate('google',
   { successRedirect: '/peliculas', failureRedirect: '/inicio' }
 ));
-router.get('/auth/instagram/callback', passport.authenticate('instagram',
+router.get('/auth/instagram/callback',isNotLoggedIn, passport.authenticate('instagram',
   { successRedirect: '/peliculas', failureRedirect: '/inicio' }
 ));
 module.exports = router;

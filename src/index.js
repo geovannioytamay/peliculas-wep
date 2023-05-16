@@ -50,8 +50,8 @@ app.use(validator());
 app.use((req, res, next) => {
   app.locals.message = req.flash('message');
   app.locals.success = req.flash('success');
-  app.locals.user = req.user;
-   
+  app.locals.user = req.user; 
+
   next();
 });
 

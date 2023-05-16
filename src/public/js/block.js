@@ -1,7 +1,12 @@
-var cantPeliculas=0;
+var contadorP=0;
 function contador(){
+    contadorP++;
+    if(contadorP==500)jsRemoveWindowLoad();
+}
+var cantPeliculas=1;
+function mostrarPedidosCant(){   
     cantPeliculas++;
-    if(cantPeliculas==500)jsRemoveWindowLoad();
+    document.getElementById("cantidad").textContent=cantPeliculas;
 }
 
 function jsRemoveWindowLoad() {
@@ -48,7 +53,7 @@ function jsShowWindowLoad(mensaje) {
         div = document.createElement("div");
         div.id = "WindowLoad"
         div.style.width = ancho + "px";
-        div.style.height = alto + "px";
+        div.style.height = (alto+50) + "px";
         $("body").append(div);
  
         //creamos un input text para que el foco se plasme en este y el usuario no pueda escribir en nada de atras

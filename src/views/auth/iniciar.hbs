@@ -1,8 +1,10 @@
-<div id="ventana_inicio" class="login-wrap">
+<div id="ventana_inicio" class="login-wrap ">
   <div class="login-html">
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar
       sesion</label>
     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Nuevo</label>
+
+
     <div class="login-form">
       <form id="iniciar" action="javascript:iniciar()" method="POST">
         <div class="sign-in-htm">
@@ -53,23 +55,54 @@
 
 
 
-      <form action="/registrar" method="POST">
+      <form id="registrar" action="javascript:registrar()" method="POST">
         <div class="sign-up-htm">
+          {{#if user}}
+          
           <div class="group">
-            <input type="text" name="nombre" placeholder="Nombre" class="input" autofocus>
+            <input type="text" id="nombre" name="nombre" value={{user.nombre}} class="input" autofocus>
           </div>
           <div class="group">
-            <input type="text" name="telefono" placeholder="Teléfono" class="input" autofocus>
+            <input type="text" id="telefono" name="telefono" placeholder="Teléfono" class="input" autofocus>
           </div>
           <div class="group">
-            <input type="text" name="usuario" placeholder="Usuario" class="input" autofocus>
+            <input type="text" id="usuario" name="usuario" value={{user.nombre}} class="input" autofocus>
           </div>
           <div class="group">
-            <input type="password" name="contrasena" placeholder="Contraseña" class="input" data-type="password">
+            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="input"
+              data-type="password">
           </div>
           <div class="group">
-            <input type="password" placeholder="Repetir contraseña" class="input" data-type="password">
+            <input type="password" id="contrasenaTwu" name="contrasenaTwu" placeholder="Repetir contraseña"
+              class="input" data-type="password">
           </div>
+          {{else}}
+          <div class="group">
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="input" autofocus>
+            hola
+          </div>
+          <div class="group">
+            <input type="text" id="telefono" name="telefono" placeholder="Teléfono" class="input" autofocus>
+          </div>
+          <div class="group">
+            <input type="text" id="usuario" name="usuario" placeholder="Usuario" class="input" autofocus>
+          </div>
+          <div class="group">
+            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="input"
+              data-type="password">
+          </div>
+          <div class="group">
+            <input type="password" id="contrasenaTwu" name="contrasenaTwu" placeholder="Repetir contraseña"
+              class="input" data-type="password">
+          </div>
+          {{/if}}
+
+
+
+          <div id="mensaje" class="alert  ocultar" role="alert">
+            Las Contraseñas coinciden !
+          </div>
+
           <div class="group">
             <input type="submit" class="button" value="Registrar">
           </div>
@@ -82,7 +115,4 @@
     </div>
   </div>
 </div>
-
-
-
 {{>getNombre}}

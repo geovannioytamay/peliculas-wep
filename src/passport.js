@@ -80,12 +80,13 @@ module.exports = function (passport) {
 			if(err) throw err;
 			if(rows && rows.length === 0) {// no existe
 				//console.log("There is no such user, adding now");//agragar usuario nuevo
-				pool.query("INSERT into usuario(id_usuario,nombre, usuario,foto, loginpor, pts) VALUES('"
+				pool.query("INSERT into usuario(id_usuario,nombre, usuario,foto, loginpor,fecha_creacion, pts ) VALUES('"
 					+id+
 				"','"+usuario+
 				"','"+usuario+
 				"','"+foto+
 				"','"+sosial+
+				"','"+getFecha()+
 				"',0"+
 				")");
 			} else {
@@ -93,5 +94,13 @@ module.exports = function (passport) {
 			}
 		  });
 	}
+
+	function getFecha(){  
+		var today = new Date();
+		var dia=(today.getDate());
+		var mes=(today.getMonth()+1);
+		var anio=(today.getFullYear()); 
+		return dia+"/"+mes+"/"+anio;  
+	  }
 
 };

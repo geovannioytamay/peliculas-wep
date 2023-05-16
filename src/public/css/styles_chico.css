@@ -174,6 +174,12 @@ a{color:inherit;text-decoration:none}
   display: flex;
   justify-content: center; 
 }
+
+.contenedorEdit{ 
+  border-radius:  #022253;
+
+}
+
 .ocultar{
   display: none;
 }
@@ -181,8 +187,8 @@ a{color:inherit;text-decoration:none}
 	text-align:center;
 }
 .qrtam{
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
 }
 input::placeholder {
   color: rgb(255, 255, 255);
@@ -635,6 +641,7 @@ aside {
   font-size: 15pt;
   background: rgb(8, 2, 46);
   border: rgb(255, 187, 0) 3px solid;
+  
 }
 
 .pts {
@@ -653,6 +660,26 @@ aside {
   -moz-border-radius: 104px 104px 104px 104px;
   -webkit-border-radius: 104px 104px 104px 104px;
   text-align: center;
+  width: 60px;
+}
+
+.peso {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 10pt;
+  background: rgb(8, 2, 46);
+  border: rgb(255, 123, 0) 3px solid;
+  max-width: 100px;
+  width: 70px;
+  border-radius: 104px 104px 104px 104px;
+  -moz-border-radius: 104px 104px 104px 104px;
+  -webkit-border-radius: 104px 104px 104px 104px;
+  text-align: center;
+  
 }
 
 .contenedor_genero {

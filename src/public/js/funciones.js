@@ -62,6 +62,7 @@ function ocultar_getNombre() {
 }
 
 function mostrar() {
+  //console.log("ejecuto ventana");
   elementoAbierto.style.display = "block"
 }
 
