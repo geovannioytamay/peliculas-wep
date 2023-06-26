@@ -73,8 +73,7 @@ window.addEventListener('load', () => {// cuando ya carge los elementos html
     if (elementoAbierto!= null && !elementoAbierto.contains(e.target)) {
       elementoAbierto.style.display = 'none';
     }
-    
-    
+        
   });
 
   

@@ -12,25 +12,25 @@ this.fetch("/peliculas/pedidos")
 
 
 */
-function ponerPeso(id_pelicula, idDiv){
-  var divPeso= document.getElementById(id_pelicula+idDiv);
+function ponerPeso(id_pelicula, idDiv) {
+  var divPeso = document.getElementById(id_pelicula + idDiv);
   divPeso.innerHTML = covertidor(idDiv);
 }
 
 
-function copiar(){
+function copiar() {
 
-  var codigo= document.getElementById("codigo").textContent;
+  var codigo = document.getElementById("codigo").textContent;
   navigator.clipboard.writeText(codigo)
-  .then(() => {
-    alert("Código Copiado");
-  })
-  .catch(err => {
-    alert("No se copio, intente de nuevo");
-  })
- 
+    .then(() => {
+      alert("Código Copiado");
+    })
+    .catch(err => {
+      alert("No se copio, intente de nuevo");
+    })
 
-    
+
+
 }
 
 function covertidor(peso) {
@@ -43,13 +43,13 @@ function covertidor(peso) {
   TB = GB / 1024;
 
   if (MB < 1024) {
-      return MB.toFixed(0)+" MB" ;
+    return MB.toFixed(0) + " MB";
   }
   if (GB < 1024) {
-      return GB.toFixed(2)+" GB"
+    return GB.toFixed(2) + " GB"
   }
   if (TB < 1024) {
-      return TB.toFixed(3);+" TB"
+    return TB.toFixed(3); +" TB"
   }
 
   return "";
@@ -62,9 +62,19 @@ function iniciar() {
 }
 function registrar() {
   if (compararContrasena()) {
+
+
+    localStorage.setItem("nombre", document.getElementById("nombre").value);
+    localStorage.setItem("telefono", document.getElementById("telefono").value);
+    localStorage.setItem("usuario", document.getElementById("usuario").value);
+    localStorage.setItem("contrasena", document.getElementById("contrasena").value);
+    localStorage.setItem("codigo", document.getElementById("codigo").value);
+
+
     document.getElementById("registrar").action = "/registrar"
     document.getElementById("registrar").submit();
   }
+
 }
 
 
@@ -164,8 +174,8 @@ function select(id_pelicul, nuevo) {
       if (nuevo) savePeliSelec(id_pelicul, true);
     }
   } catch (error) {
-   // si no ecuentra el elemento agrega en la menor y cuneta
-   //pero no trataea de cambiar el stilo del la pelicula ya que no se encuetra en el DOOM
+    // si no ecuentra el elemento agrega en la menor y cuneta
+    //pero no trataea de cambiar el stilo del la pelicula ya que no se encuetra en el DOOM
     agregar(1);
     agegarMemoria(id_pelicul);
   }
@@ -265,13 +275,13 @@ window.addEventListener("load", function () {
 
   if (window.location.href.indexOf("peliculas") >= 0) {
     //  document.getElementById("genero").style.display = "block";
- 
+
     var memoria = localStorage.getItem("peliSelecionados");
     if (memoria) {
-      
+
       var pelis_Select = memoria.split(" ");
       for (let i in pelis_Select) {
-        
+
         if (document.getElementById("" + pelis_Select[i])) {
           document.getElementById("" + pelis_Select[i]).style.border = "rgb(0, 148, 247) 7px solid";          //console.log( document.getElementById("" + pelis_Select[i]).style);       
         }
@@ -280,7 +290,18 @@ window.addEventListener("load", function () {
 
     }
 
+    /// Borrar datos de nuevos usuario en local storage
+    var usuario = localStorage.getItem("usuario");
+    if (usuario != null) {
 
+      localStorage.removeItem("nombre")
+      localStorage.removeItem("telefono")
+      localStorage.removeItem("usuario")
+      localStorage.removeItem("contrasena")
+      localStorage.removeItem("contrasena")
+      localStorage.removeItem("codigo")
+
+    }
 
 
   }
@@ -308,9 +329,22 @@ window.addEventListener("load", function () {
       }, 1000)
     });
 
-    var tab3 = document.getElementById("tab-1");
-    tab3.checked = true
-    console.log(tab3);
+
+    var tab2 = document.getElementById("tab-2");
+    var usuario = localStorage.getItem("usuario");
+    if (usuario != null) {// sin en local host no hay usuario entonces recoger todos lo datos y lo pones en los campos 
+      var tab2 = document.getElementById("tab-2");
+      tab2.checked = true
+      document.getElementById("nombre").value = localStorage.getItem("nombre")
+      document.getElementById("telefono").value = localStorage.getItem("telefono")
+      document.getElementById("usuario").value = localStorage.getItem("usuario")
+      document.getElementById("contrasena").value = localStorage.getItem("contrasena")
+      document.getElementById("contrasenaTwu").value = localStorage.getItem("contrasena")
+      document.getElementById("codigo").value = localStorage.getItem("codigo")
+    }
+
+
+
 
 
   }

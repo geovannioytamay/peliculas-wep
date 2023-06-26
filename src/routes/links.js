@@ -109,7 +109,7 @@ router.get('/', isLoggedIn, async (req, res) => {
     }
 
     const genero = await pool.query('SELECT genero FROM genero');
-    
+
     var carrito = await pool.query('SELECT* FROM (pelicula INNER JOIN pedidos)'
         + ' WHERE pelicula.id_pelicula = pedidos.id_pelicula AND id_usuario= ?', id_usuario);
 
@@ -128,7 +128,7 @@ router.get('/', isLoggedIn, async (req, res) => {
                 if (buscar) {
                     buscar = '%' + buscar + '%';
                     pelis = await pool.query('SELECT * from pelicula where nombre like ? and descargado=1 order by anio desc, id_pelicula desc', buscar);
-                } else {                   
+                } else {
                     pelis = await pool.query('SELECT * from pelicula where descargado=1 order by anio desc, id_pelicula desc');
 
                 }
@@ -141,10 +141,6 @@ router.get('/', isLoggedIn, async (req, res) => {
         res.render('peliculas/list', { pelis, genero, carrito });
 
 });
-
-
-
-
 
 
 function idPeliculas(pelicula) {
@@ -178,6 +174,7 @@ router.post('/:genero', isLoggedIn, async (req, res) => {
 
 
 
+
 router.post('/edit_nombre/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const { nombre } = req.body;
@@ -202,7 +199,7 @@ router.post('/edit_usaurio/:id', isLoggedIn, async (req, res) => {
     const sql = 'UPDATE usuario set usuario= "' + usuario + '" WHERE id_usuario = ' + id;
     //console.log(sql+"___________________________________________________________________________")
     await pool.query(sql);
-    req.flash('Exito!!', 'Usaurio actualizado correctamente');
+    req.flash('Exito!!', 'Usuario actualizado correctamente');
     res.redirect('/perfil');
 });
 

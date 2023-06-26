@@ -76,6 +76,8 @@ module.exports = function (passport) {
 	}));
 
 	function sesion(id, usuario, foto, sosial){
+		
+
 		pool.query("SELECT * from usuario where id_usuario='"+id+"'", (err,rows) => {
 			if(err) throw err;
 			if(rows && rows.length === 0) {// no existe

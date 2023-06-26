@@ -45,10 +45,25 @@ passport.use('local.signup', new LocalStrategy({
   passReqToCallback: true
 }, async (req, usuario, contrasena, done) => {
 
-  const { nombre, telefono } = req.body;
+ 
+
+  const { nombre, telefono, codigo } = req.body;
   const pts = 0;
   const fecha_creacion = getFecha(); 
   const loginpor = "Local"
+  const activado = 0
+  id_usuario=codigo;
+
+  const usarioAmigo=await pool.query("SELECT * from usuario where id_usuario='"+id_usuario+"'"); //para ver si exise el codigo
+  
+  console.log(usarioAmigo[0]);
+  
+  
+  if(usarioAmigo.length==0){
+    return done(null, false, req.flash('message', 'Codigo de invitación es incorrecto, solicitalo de nuevo.'));
+  }
+
+
   let newUser = {
     nombre,
     usuario,
@@ -58,9 +73,16 @@ passport.use('local.signup', new LocalStrategy({
     loginpor,
     pts    
   };
+  let invitacion = {// para gusardar infomacion de relacion de la invitacion
+    id_usuario, // id del amigo que proporsiono su codigo
+    activado// 0 porque el usuario aun no ha comprado peliculas
+  };  
   newUser.contrasena = await helpers.encryptPassword(contrasena);
   // Saving in the Database
+  
   const result = await pool.query('INSERT INTO usuario SET ? ', newUser);
+  invitacion.id_amigo = result.insertId;// id del amigo quien se registro con el codigo de su amigo
+  await pool.query('INSERT INTO invitacionnewusuario SET ? ', invitacion);
   newUser.id_usuario = result.insertId;
   return done(null, newUser);
 }));

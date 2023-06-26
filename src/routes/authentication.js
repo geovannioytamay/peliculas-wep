@@ -49,7 +49,10 @@ router.get('/logout',  (req, res) => {
 router.get('/perfil', isLoggedIn, (req, res) => {
   res.render('perfil');
 });
-
+/*router.get('/historial', isLoggedIn,(req, res) => {
+ const id_usuario  = req.user.id_usuario;   
+  res.render('historial', { id_usuario });
+});*/
 
 router.get('/edit_usuario', isLoggedIn, async (req, res) => {
   const id_usuario  = req.user.id_usuario;    
@@ -71,6 +74,7 @@ router.get('/edit_contrasena', isLoggedIn, async (req, res) => {
   //console.log(links);
   res.render('edit_contrasena', { id_usuario });
 });
+
 
 ///iniciar con rede sosiales
 router.get('/auth/twitter', isNotLoggedIn, passport.authenticate('twitter'));
