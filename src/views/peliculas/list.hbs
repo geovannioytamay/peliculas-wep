@@ -7,8 +7,9 @@
             mostrarPedidosCant();           
         </script>
         {{/each}}
+        
         {{#each pelis}}
-        <div style="width: 15rem;  ">
+        <div id="{{id_pelicula}}"  class="vistaPeli" style="width: 15rem;  ">
             <div class="card-body text-success contenedor">
                 <a href="javascript:select('{{id_pelicula}}', true)">
                     <img id={{id_pelicula}} src="img/portadas/{{imagen}}" width="00" height="300" class="card-img-top p"

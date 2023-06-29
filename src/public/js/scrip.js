@@ -269,12 +269,13 @@ window.addEventListener("load", function () {
   cant = 0;//reniciar el contador de peliculas
   localStorage.removeItem("peliSelecionados");
   for (var obj of objects) {   // console.log(cant);    
-    select(obj.id.substring(1, obj.id.length), false);
+    select(obj.id.substring(1, obj.id.length), false);//extraer el id
   }
 
 
   if (window.location.href.indexOf("peliculas") >= 0) {
     //  document.getElementById("genero").style.display = "block";
+   
 
     var memoria = localStorage.getItem("peliSelecionados");
     if (memoria) {

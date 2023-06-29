@@ -45,19 +45,20 @@
   {{#if gen}}
   {{{ body }}}
   {{else}}
-  <section>
-    {{{ body }}}
-  </section>
+  
   {{#if user}}
-  {{>infomacion}}
+  <aside>
+    {{>herramientas}}
+  </aside>
   {{>menu}}
   {{>mesage}}
   {{>infomacion}}
   {{>buscar}}
-  <aside>
-    {{>herramientas}}
-  </aside>
-  {{/if}}  
+  
+  {{/if}} 
+  <section>
+    {{{ body }}}
+  </section> 
   {{/if}}
 
   {{>AlertSiNo}}
