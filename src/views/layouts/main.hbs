@@ -49,16 +49,16 @@
   {{#if user}}
   <aside>
     {{>herramientas}}
-  </aside>
-  {{>menu}}
-  {{>mesage}}
-  {{>infomacion}}
-  {{>buscar}}
+  </aside>  
   
   {{/if}} 
   <section>
     {{{ body }}}
   </section> 
+  {{>menu}}
+  {{>mesage}}
+  {{>infomacion}}
+  {{>buscar}}
   {{/if}}
 
   {{>AlertSiNo}}
