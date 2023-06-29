@@ -1,5 +1,5 @@
-<button type="button" class="btn btn-outline-primary">Peliculas</button>
-<button type="button" class="btn btn-outline-secondary">Amigos</button>
+<button id="btnVentas" type="button" class="btn btn-outline-primary">Peliculas</button>
+<button id="btnAmigos" type="button" class="btn btn-outline-secondary">Amigos</button>
 <div id="ventas" class="container">
     <div class="row">
         <div class="col table-responsive">
@@ -53,11 +53,10 @@
         </div>
     </div>
 
+</div>
 
 
-
-
-    <div id="amigos" class="container">
+<div id="amigos" class="container">
     <div class="row">
         <div class="col table-responsive">
             {{#each amigos}}
@@ -68,7 +67,7 @@
                         <th>Nombre</th>
                         <th>fehca creacion</th>
                         <th>Activado</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -76,14 +75,10 @@
                         <td>{{nombre}}</td>
                         <td>{{fecha_creacion}}</td>
                         <td>{{activado}}</td>
-                        
-
                     </tr>
-
                 </tbody>
             </table>
-
-            
             {{/each}}
         </div>
     </div>
+</div>

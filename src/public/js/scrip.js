@@ -345,10 +345,28 @@ window.addEventListener("load", function () {
     }
 
 
-
-
-
   }
+
+  if (window.location.href.indexOf("historial") >= 0) {
+    
+    var amigos = document.getElementById("amigos");
+    var ventas = document.getElementById("ventas");
+    var btnamigos = document.getElementById("btnAmigos");
+    var btnventas = document.getElementById("btnVentas");
+    
+
+   
+    btnamigos.addEventListener('click', () => {
+      ventas.style.display = 'none';
+      amigos.style.display = 'block';
+    });
+
+    btnventas.addEventListener('click', () => {
+      amigos.style.display = 'none';
+      ventas.style.display = 'block';
+    });
+  }
+
 });
 
 
