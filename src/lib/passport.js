@@ -49,7 +49,7 @@ passport.use('local.signup', new LocalStrategy({
   const pts = 0;
   const fecha_creacion = getFecha();
   const loginpor = "Local"
-  const activado = 0
+  const activado = "No"
   if (codigo.length > 0) {
     id_usuario = codigo;
     const usarioAmigo = await pool.query("SELECT * from usuario where id_usuario='" + id_usuario + "'"); //para ver si exise el codigo
@@ -78,7 +78,7 @@ passport.use('local.signup', new LocalStrategy({
 
   const result = await pool.query('INSERT INTO usuario SET ? ', newUser);
   invitacion.id_amigo = result.insertId;// id del amigo quien se registro con el codigo de su amigo
-  
+
   if (codigo.length > 0) 
   await pool.query('INSERT INTO invitacionnewusuario SET ? ', invitacion);
   newUser.id_usuario = result.insertId;

@@ -7,14 +7,13 @@
   <title>Peliculas</title>
   {{!-- GOOGLE FONTS --}}
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-  {{!-- BOOTSTRAP 4 --}}
-   <link href="bootstrap-4.1.3/css/bootstrap.css" rel="stylesheet">
-<script src="bootstrap-4.1.3/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  {{!-- FONT AWESOME 5 --}}
+  {{!-- BOOTSTRAP 5 --}}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   {{!-- FONT AWESOME 5 --}}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    
+
   {{!-- STYLES --}}
   <link rel="stylesheet" href="/css/styles_global.css">
   <link rel="stylesheet" href="/css/styles_chico.css">
@@ -45,16 +44,16 @@
   {{#if gen}}
   {{{ body }}}
   {{else}}
-  
+
   {{#if user}}
   <aside>
     {{>herramientas}}
-  </aside>  
-  
-  {{/if}} 
+  </aside>
+
+  {{/if}}
   <section>
     {{{ body }}}
-  </section> 
+  </section>
   {{>menu}}
   {{>mesage}}
   {{>infomacion}}
