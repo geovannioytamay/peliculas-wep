@@ -9,7 +9,7 @@ module.exports = {
         port: DB_PORT=process.env.DB_PORT || 3306,
         database: DB_NAME=process.env.DB_NAME || 'basepelis', 
         //ya que en la bd en la nuve no tiene esta propiedad
-        ssl:{ rejetUnauthorized:false}        
+        //ssl:{ rejetUnauthorized:false}        
      
     }
   

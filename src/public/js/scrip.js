@@ -162,7 +162,7 @@ function select(id_pelicul, nuevo) {
   try {//evitar el error de no econtrar el elemento   
     var image = document.getElementById(id_pelicul).style.border;
     if (image == '7px solid rgb(0, 148, 247)') {
-      document.getElementById(id_pelicul).style.border = "rgb(17, 148, 28) 3px solid";
+      document.getElementById(id_pelicul).style.border = "";
       agregar(-1);
       savePeliSelec(id_pelicul, false);
       quitarMemoriar(id_pelicul);

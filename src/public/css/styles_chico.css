@@ -245,7 +245,8 @@ input::placeholder {
   border: rgb(17, 148, 28) 3px solid;
   border-image-slice: 1;
   padding: 0px;
-  text-align: justify;
+  text-align: justify;  
+   height:200
 }
 
 
