@@ -607,6 +607,10 @@ aside {
   overflow: scroll;
 }
 
+.vistaPeli{
+  width: 15rem; 
+}
+
 .centrado {
   position: absolute;
   top: 75%;

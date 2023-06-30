@@ -133,6 +133,22 @@
     font-family: arial;
     text-decoration: none;
   }
+  .vistaPeli{
+   
+  top: 0%;
+  left: 0%;
+ 
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 10pt;
+  background: rgb(8, 2, 46);
+ 
+  
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  
+  }
   .centro {
     text-align: center;
   }

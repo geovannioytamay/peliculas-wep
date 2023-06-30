@@ -1,6 +1,6 @@
 
 <div class="container p-1">
-    <div class="row row-cols-1 row-cols-md-3">
+    <div class="row row-cols-1 row-cols-md-5">
         {{#each carrito}}
         <div class="ocultar id_carrito" id="i{{id_pelicula}}"></div>
         <script type="text/javascript">
@@ -9,7 +9,7 @@
         {{/each}}
         
         {{#each pelis}}
-        <div id="{{id_pelicula}}"  class="vistaPeli" style="width: 15rem;  ">
+        <div id="{{id_pelicula}}"  class="vistaPeli">
             <div class="card-body text-success contenedor">
                 <a href="javascript:select('{{id_pelicula}}', true)">
                     <img id={{id_pelicula}} src="img/portadas/{{imagen}}" width="00" height="300" class="card-img-top p"

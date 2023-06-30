@@ -23,6 +23,7 @@ router.get('/historial', isLoggedIn, async (req, res) => {
 
 });
 
+
 async  function encontrarCantidad (peliculas) {// encontrar la cantida de pelicula que compro ID
     var idVenta;
     var i=0;
@@ -42,5 +43,12 @@ async  function encontrarCantidad (peliculas) {// encontrar la cantida de pelicu
 
 
 }
+
+router.get('/politica_privacidad',  async (req, res) => {
+
+    
+    res.render('politica_privacidad');
+
+});
 
 module.exports = router;
