@@ -89,7 +89,7 @@ router.get('/delete', isLoggedIn, async (req, res) => {
 
 
 
-router.get('/', isLoggedIn, async (req, res) => {
+router.get('/', async (req, res) => {
     //   const pelis = await pool.query('SELECT * FROM (pelicula inner join usuario_pelicula) WHERE pelicula.id_pelicula = usuario_pelicula.id_pelicula and  id_usuario = ?',
     //  [req.user.id_usuario]);
 
